@@ -4,9 +4,13 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import { celebrateMoviesList } from "../movieData"
+import { comingSoonMoviesList } from "../movieData"
+
+
 
 // components
-import { MovieCard } from "./MovieCard"
+import { MovieCard1 } from "./MovieCard"
+import { MovieCard2 } from "./MovieCard"
 
 
 function SampleNextArrow(props) {
@@ -84,7 +88,7 @@ export const CelebrateSectionSlider = () => {
     return (
         <Slider {...settings} className="px-20">
           {celebrateMoviesList.map((movie, index) => {
-            return <MovieCard key={index} imageUrl={movie.imageUrl} description={movie.description} />
+            return <MovieCard1 key={index} imageUrl={movie.imageUrl} description={movie.description} />
           })}
         </Slider>
     );
@@ -95,7 +99,6 @@ export const CelebrateSectionSlider = () => {
 
 export const ComingSoonSectionSlider = () => {
 
-  console.log("logging movies data:", celebrateMoviesList)
 
     var settings = {
       dots: false,
@@ -146,8 +149,8 @@ export const ComingSoonSectionSlider = () => {
     };
     return (
         <Slider {...settings} className="px-20">
-          {celebrateMoviesList.map((movie, index) => {
-            return <MovieCard key={index} imageUrl={movie.imageUrl} description={movie.description} />
+          {comingSoonMoviesList.map((movie, index) => {
+            return <MovieCard2 key={index} imageUrl={movie.imageUrl} description={movie.description} descriptionSmall={movie.descriptionSmall} />
           })}
         </Slider>
     );

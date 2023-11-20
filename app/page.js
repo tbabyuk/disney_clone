@@ -7,7 +7,9 @@ import { IoPlay } from "react-icons/io5";
 
 import { Card1 } from './components/Card1';
 import { TrendingCard } from './components/TrendingCard';
+import { VacationCard } from './components/VacationCard';
 import { CelebrateSectionSlider } from './components/MoviesSliders';
+import { ComingSoonSectionSlider } from './components/MoviesSliders';
 
 
 export default function Home() {
@@ -51,6 +53,7 @@ export default function Home() {
         <Card1 imageUrl="/images/section_2_image_3.jpeg" title="shopDisney" description="Celebrate 10 Years of Frozen with Dolls, Apparel, and More!" link="SHOP NOW" />
         <Card1 imageUrl="/images/section_2_image_4.jpeg" title="Adventures by Disney&reg;" description="Embark on Winter Adventures with Savings of Up to $350 per Person on Select Land Adventures Departures" link="LEARN MORE" />
       </section>
+
       <section className="trending-section bg-[#0A193C] py-8">
           <h2 className="text-[1.8rem] text-white text-center pb-8">Trending on Disney+</h2>
           <div className="flex flex-wrap justify-center gap-5">
@@ -58,14 +61,24 @@ export default function Home() {
             <TrendingCard imageUrl="/images/trending_image_2.jpeg" title="Marvel Studios' Loki" description="Stream Season 2 now on Disney+." link="STREAM NOW" />
           </div>
       </section>
+
       <section className="celebrate-section py-12 bg-[#F1F2F3]">
         <h2 className="text-[1.8rem] pb-8 text-center">Celebrate Season's Streamings on Disney+</h2>
         <CelebrateSectionSlider />
       </section>
       <section className="coming-soon-section py-12 bg-[#F1F2F3]">
         <h2 className="text-[1.8rem] pb-8 text-center">Coming Soon to Disney+</h2>
-        <CelebrateSectionSlider />
+        <ComingSoonSectionSlider />
       </section>
+
+      <section className="vacation-section bg-[#F1F2F3] py-8">
+          <h2 className="text-[1.8rem] text-black text-center pb-8">Vacation with Disney Parks</h2>
+          <div className="flex flex-wrap justify-center gap-5">
+            <VacationCard imageUrl="/images/vacation_section/vacation_image_1.jpeg" title="Walt Disney World&reg; Resort" description="Play, stay and dine with this special offer." link="LEARN MORE" />
+            <VacationCard imageUrl="/images/vacation_section/vacation_image_2.jpeg" title="Disneyland&reg; Resort" description="Save up to 15% on select stays now through 12/21/2023 at a Disneyland&reg; Resort hotel." link="LEARN MORE" />
+          </div>
+      </section>
+
     </main>
   )
 }
