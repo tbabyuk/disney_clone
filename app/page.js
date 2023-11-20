@@ -7,7 +7,7 @@ import { IoPlay } from "react-icons/io5";
 
 import { Card1 } from './components/Card1';
 import { TrendingCard } from './components/TrendingCard';
-import { MoviesSlider } from './components/MoviesSlider';
+import { CelebrateSectionSlider } from './components/MoviesSliders';
 
 
 export default function Home() {
@@ -58,9 +58,13 @@ export default function Home() {
             <TrendingCard imageUrl="/images/trending_image_2.jpeg" title="Marvel Studios' Loki" description="Stream Season 2 now on Disney+." link="STREAM NOW" />
           </div>
       </section>
-      <section className="celebrate py-12 bg-[#F1F2F3]">
+      <section className="celebrate-section py-12 bg-[#F1F2F3]">
         <h2 className="text-[1.8rem] pb-8 text-center">Celebrate Season's Streamings on Disney+</h2>
-        <MoviesSlider />
+        <CelebrateSectionSlider />
+      </section>
+      <section className="coming-soon-section py-12 bg-[#F1F2F3]">
+        <h2 className="text-[1.8rem] pb-8 text-center">Coming Soon to Disney+</h2>
+        <CelebrateSectionSlider />
       </section>
     </main>
   )
