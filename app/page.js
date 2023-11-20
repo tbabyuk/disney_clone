@@ -1,3 +1,5 @@
+"use client"
+
 import Image from 'next/image'
 import { IoPlay } from "react-icons/io5";
 
@@ -5,6 +7,7 @@ import { IoPlay } from "react-icons/io5";
 
 import { Card1 } from './components/Card1';
 import { TrendingCard } from './components/TrendingCard';
+import { MoviesSlider } from './components/MoviesSlider';
 
 
 export default function Home() {
@@ -54,6 +57,10 @@ export default function Home() {
             <TrendingCard imageUrl="/images/trending_image_1.jpeg" title="The Santa Clauses" description="Season 2 of the Disney+ Original series is now streaming!" link="STREAM NOW" />
             <TrendingCard imageUrl="/images/trending_image_2.jpeg" title="Marvel Studios' Loki" description="Stream Season 2 now on Disney+." link="STREAM NOW" />
           </div>
+      </section>
+      <section className="celebrate py-12 bg-[#F1F2F3]">
+        <h2 className="text-[1.8rem] pb-8 text-center">Celebrate Season's Streamings on Disney+</h2>
+        <MoviesSlider />
       </section>
     </main>
   )

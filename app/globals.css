@@ -2,4 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+.slick-arrow.slick-prev {
+    background: #F1F2F3;
+    left: 30px;
+    top: 45%;
+    z-index: 10;
+}
+
+.slick-arrow.slick-next {
+    background: #F1F2F3;
+    right: 60px;
+    top: 45%;
+}
+
+.slick-arrow.slick-next::before, .slick-arrow.slick-prev::before {
+    color: gray;
+    font-size: 50px;
+}
 
