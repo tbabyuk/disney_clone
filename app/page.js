@@ -79,6 +79,22 @@ export default function Home() {
           </div>
       </section>
 
+      <section className="bundle-section h-[70vh] overflow-hidden relative grid place-items-center">
+          <img src="/images/bundle_image.jpeg" className="hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out h-full" />
+          <div className="absolute text-white text-center max-w-[85vw]">
+            <img src="/images/bundle_section/bundle_logo.png" width="350px" className="inline-block" />
+            <p className="text-[0.9rem] mt-3">Access your favorite stories, originals and more from Disney+ and Hulu with plans starting at $9.99/month.</p>
+            <p className="text-[0.65rem] mt-2">Terms apply*</p>
+            <button className="bg-[#0318E4] w-[230px] mt-4 py-3 rounded-3xl text-[0.95rem] font-semibold hover:bg-[#0316c9]">GET THEM BOTH</button>
+          </div>
+      </section>
+
+      <section className="bundle-bottom-section py-5 bg-[#FFFFFF]">
+            <p className="text-[0.75rem] mt-3 text-center w-[90vw] lg:w-[80vw] xl:w-[70vw] mx-auto leading-7">*U.S. residents, 18+ only. Access content from each service separately. Location data required to watch certain content. Offer valid for eligible subscribers only. Subject to <span className="underline">Disney+ and ESPN+ Subscriber Agreement</span>. For detailed information on billing and cancelation, please visit the <span className="underline">Disney+ Help Center</span>.</p>
+      </section>
+
+
+
     </main>
   )
 }
