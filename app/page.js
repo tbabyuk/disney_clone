@@ -90,9 +90,27 @@ export default function Home() {
       </section>
 
       <section className="bundle-bottom-section py-5 bg-[#FFFFFF]">
-            <p className="text-[0.75rem] mt-3 text-center w-[90vw] lg:w-[80vw] xl:w-[70vw] mx-auto leading-7">*U.S. residents, 18+ only. Access content from each service separately. Location data required to watch certain content. Offer valid for eligible subscribers only. Subject to <span className="underline">Disney+ and ESPN+ Subscriber Agreement</span>. For detailed information on billing and cancelation, please visit the <span className="underline">Disney+ Help Center</span>.</p>
+            <p className="text-[0.75rem] text-center w-[90vw] lg:w-[80vw] xl:w-[70vw] mx-auto leading-7">*U.S. residents, 18+ only. Access content from each service separately. Location data required to watch certain content. Offer valid for eligible subscribers only. Subject to <span className="underline">Disney+ and ESPN+ Subscriber Agreement</span>. For detailed information on billing and cancelation, please visit the <span className="underline">Disney+ Help Center</span>.</p>
       </section>
 
+      <section className="cards-section min-h-[70vh] bg-[#F1F2F4] overflow-hidden flex flex-col lg:flex-row">
+          <div className="py-14 lg:w-[50%] flex items-center hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out">
+            <img src="/images/cards_section_image.jpeg" alt="" />
+          </div>
+          <div className="pb-14 lg:pb-0 grid lg:w-[50%] place-items-center hover:cursor-pointer">
+            <div className="text-[#0F2F5E] w-[400px] text-center">
+              <h3 className="text-[1.4rem]">Your Disney dream is in the cards</h3>
+              <p className="mt-4 text-[0.9rem] leading-6">Special Vacation Financing<br />Enjoy 0% promotional APR for 6 months<br />on select Disney vacation packages.<br /> Terms apply.</p>
+              <p className="mt-5 text-[0.9rem] leading-6">Earn a <span className="text-[1.1rem] font-bold">$300</span> statement credit.<br />New Disney&reg; Premier Visa&reg; Cardmembers only.</p>
+              <p className="mt-5 text-[1.2rem] font-bold">LEARN MORE</p>
+              <p className="mt-2 text-[0.6rem] leading-6">Restrictions apply. &copy; Disney and its related entities.<br />Member FDIC</p>
+            </div>
+          </div>
+      </section>
+
+      <section className="footer-section py-5 h-[200px] bg-[#FFFFFF]">
+            <img src="/images/disney_logo.png" className="mx-auto w-[80px]" />
+      </section>
 
 
     </main>
