@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { IoPlay } from "react-icons/io5";
+import { useState } from 'react';
 
 // components
 
@@ -13,15 +14,22 @@ import { ComingSoonSectionSlider } from './components/MoviesSliders';
 
 
 export default function Home() {
+
+  const [disneyPlusMenu, setDisneyPlusMenu] = useState(false)
+  const [parksTravelMenu, setParksTravelMenu] = useState(false)
+
+
+
   return (
     <main>
+
       <div className="header-top w-[100%] h-[63px] flex items-center justify-between py-4 px-5 text-[0.9rem] overflow-hidden">
         <div className="flex-1 flex items-center">
           <Image src="/images/disney_logo.png" width="90" height="90" alt="Disney Logo" />
           <nav className="ms-5 flex-1">
             <ul className="flex font-bold">
-              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">DISNEY+</li>
-              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">PARKS & TRAVEL</li>
+              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]" onMouseEnter={() => setDisneyPlusMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}>DISNEY+</li>
+              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]" onMouseEnter={() => setParksTravelMenu(true)} onMouseLeave={() => setParksTravelMenu(false)}>PARKS & TRAVEL</li>
               <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">MOVIES</li>
               <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">SHOP</li>
               <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">MORE</li>
@@ -36,6 +44,7 @@ export default function Home() {
           </form>
         </div>
       </div>
+
       <div className="hero-section h-[calc(100vh-63px)] overflow-hidden relative">
         <img src="/images/header_image.jpeg" className="hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out" />
 
@@ -45,6 +54,23 @@ export default function Home() {
           <button className="bg-[#C8D5FC] w-[240px] mt-3 py-3 rounded-3xl text-[0.9rem] font-semibold hover:bg-[#b6c1e4]">Get Tickets Now</button>
           <button className="border w-[240px] mt-3 py-3 rounded-3xl text-[0.95rem] text-white font-semibold flex justify-center items-center hover:bg-gray-500 hover:bg-opacity-50 hover:border-gray-500 hover:border-opacity-50"><IoPlay className="me-2" size="17px" />Watch Trailer</button>
         </div>
+        {disneyPlusMenu && (
+              <ul className="absolute left-[120px] top-0 bg-[#232B2D] w-[180px] text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setDisneyPlusMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5 ">On Disney+</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb]">The Disney Bundle</li>
+              </ul>
+        )}
+
+        {parksTravelMenu && (
+              <ul className="absolute left-[220px] top-0 bg-[#232B2D] w-[270px] text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setParksTravelMenu(true)} onMouseLeave={() => setParksTravelMenu(false)}>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">World Disney World Resort</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Disneyland Resort</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Disney Cruise Line</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Aulani - A Disney Resort and Spa</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Adventures by Disney</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb]">Disney Vacation Club</li>
+              </ul>
+        )}
       </div>
 
       <section className="section-2 py-12 flex justify-center flex-wrap gap-5 bg-[#F1F2F3]">
