@@ -2,6 +2,8 @@
 
 import Image from 'next/image'
 import { IoPlay } from "react-icons/io5";
+import { IoSearchSharp } from 'react-icons/io5';
+import { GiHamburgerMenu } from "react-icons/gi"; 
 import { useState } from 'react';
 
 // components
@@ -17,32 +19,48 @@ export default function Home() {
 
   const [disneyPlusMenu, setDisneyPlusMenu] = useState(false)
   const [parksTravelMenu, setParksTravelMenu] = useState(false)
-
-
+  const [moviesMenu, setMoviesMenu] = useState(false)
+  const [shopMenu, setShopMenu] = useState(false)
+  const [moreMenu, setMoreMenu] = useState(false)
 
   return (
     <main>
 
-      <div className="header-top w-[100%] h-[63px] flex items-center justify-between py-4 px-5 text-[0.9rem] overflow-hidden">
-        <div className="flex-1 flex items-center">
-          <Image src="/images/disney_logo.png" width="90" height="90" alt="Disney Logo" />
-          <nav className="ms-5 flex-1">
+      <div className="header-top relative w-[100%] h-[63px] flex items-center justify-between py-4 px-5 text-[0.9rem] overflow-hidden">
+          <GiHamburgerMenu size="1.5rem" className="lg:hidden cursor-pointer" />
+          <a href=""><Image className="mx-auto cursor-pointer" src="/images/disney_logo.png" width="90" height="90" alt="Disney Logo" /></a>
+          <nav className="hidden lg:block ms-5 flex-1">
             <ul className="flex font-bold">
               <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]" onMouseEnter={() => setDisneyPlusMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}>DISNEY+</li>
               <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]" onMouseEnter={() => setParksTravelMenu(true)} onMouseLeave={() => setParksTravelMenu(false)}>PARKS & TRAVEL</li>
-              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">MOVIES</li>
-              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">SHOP</li>
-              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]">MORE</li>
+              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]" onMouseEnter={() => setMoviesMenu(true)} onMouseLeave={() => setMoviesMenu(false)}>MOVIES</li>
+              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]" onMouseEnter={() => setShopMenu(true)} onMouseLeave={() => setShopMenu(false)}>SHOP</li>
+              <li className="p-5 hover:cursor-pointer hover:text-[#1786eb]" onMouseEnter={() => setMoreMenu(true)} onMouseLeave={() => setMoreMenu(false)}>MORE</li>
             </ul>
           </nav>
-        </div>
-        <div className="flex items-center float-right">
-          <div className="me-5 hover:cursor-pointer">SIGN IN</div>
-          <form className="flex items-center">
+          <div className="hidden lg:block me-5 hover:cursor-pointer">SIGN IN</div>
+          <form className="hidden lg:flex items-center">
             <input type="text" className="bg-[#F5F5F5] p-[10px] w-[290px] h-[40px] border-[1px] border-gray-500 border-r-0 rounded-tl rounded-bl" placeholder="Search" />
             <button className="p-[10px] h-[40px] border-[1px] border-gray-500 border-l-0 rounded-tr rounded-br flex items-center"><Image src="/images/search.svg" width="25" height="25" /></button>
           </form>
-        </div>
+          <IoSearchSharp size="1.7rem" className="lg:hidden cursor-pointer" />
+        {disneyPlusMenu && (
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[170px]"></div>
+        )}
+        {parksTravelMenu && (
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[300px]"></div>
+        )}
+        {moviesMenu && (
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[435px]"></div>
+        )}
+        {shopMenu && (
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[525px]"></div>
+        )}
+        {moreMenu && (
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[606px]"></div>
+        )}
+
+
       </div>
 
       <div className="hero-section h-[calc(100vh-63px)] overflow-hidden relative">
@@ -54,21 +72,49 @@ export default function Home() {
           <button className="bg-[#C8D5FC] w-[240px] mt-3 py-3 rounded-3xl text-[0.9rem] font-semibold hover:bg-[#b6c1e4]">Get Tickets Now</button>
           <button className="border w-[240px] mt-3 py-3 rounded-3xl text-[0.95rem] text-white font-semibold flex justify-center items-center hover:bg-gray-500 hover:bg-opacity-50 hover:border-gray-500 hover:border-opacity-50"><IoPlay className="me-2" size="17px" />Watch Trailer</button>
         </div>
+
         {disneyPlusMenu && (
-              <ul className="absolute left-[120px] top-0 bg-[#232B2D] w-[180px] text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setDisneyPlusMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}>
+              <ul className="absolute left-[120px] top-0 bg-[#232B2D] w-fit text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setDisneyPlusMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5 ">On Disney+</li>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb]">The Disney Bundle</li>
               </ul>
         )}
 
         {parksTravelMenu && (
-              <ul className="absolute left-[220px] top-0 bg-[#232B2D] w-[270px] text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setParksTravelMenu(true)} onMouseLeave={() => setParksTravelMenu(false)}>
+              <ul className="absolute left-[220px] top-0 bg-[#232B2D] w-fit text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setParksTravelMenu(true)} onMouseLeave={() => setParksTravelMenu(false)}>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">World Disney World Resort</li>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Disneyland Resort</li>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Disney Cruise Line</li>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Aulani - A Disney Resort and Spa</li>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Adventures by Disney</li>
                 <li className="font-bold hover:cursor-pointer hover:text-[#1786eb]">Disney Vacation Club</li>
+              </ul>
+        )}
+
+        {moviesMenu && (
+              <ul className="absolute left-[380px] top-0 bg-[#232B2D] w-fit text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setMoviesMenu(true)} onMouseLeave={() => setMoviesMenu(false)}>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">All Movies</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Movies Anywhere</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Disney Movie Insiders</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb]">20th Century Studios</li>
+              </ul>
+        )}
+
+        {shopMenu && (
+              <ul className="absolute left-[480px] top-0 bg-[#232B2D] w-fit text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setShopMenu(true)} onMouseLeave={() => setShopMenu(false)}>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Sale</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Clothes</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Accessories</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Toys</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb]">Shop All</li>
+              </ul>
+        )}
+
+        {moreMenu && (
+              <ul className="absolute left-[560px] top-0 bg-[#232B2D] w-fit text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setMoreMenu(true)} onMouseLeave={() => setMoreMenu(false)}>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">Disney News</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb] mb-5">D23: The Official Disney Fan Club</li>
+                <li className="font-bold hover:cursor-pointer hover:text-[#1786eb]">Live Shows</li>
               </ul>
         )}
       </div>
