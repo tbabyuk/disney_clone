@@ -23,11 +23,13 @@ export default function Home() {
   const [shopMenu, setShopMenu] = useState(false)
   const [moreMenu, setMoreMenu] = useState(false)
 
+  const [hamburgerDropdown, setHamburgerDropdown] = useState(false)
+
   return (
     <main>
 
-      <div className="header-top relative w-[100%] h-[63px] flex items-center justify-between py-4 px-5 text-[0.9rem] overflow-hidden">
-          <GiHamburgerMenu size="1.5rem" className="lg:hidden cursor-pointer" />
+      <div className="header-top z-20 relative w-[100%] h-[63px] flex items-center justify-between py-4 px-5 text-[0.9rem]">
+          <GiHamburgerMenu size="1.5rem" className="lg:hidden cursor-pointer" onClick={() => setHamburgerDropdown(!hamburgerDropdown)} />
           <a href=""><Image className="mx-auto cursor-pointer" src="/images/disney_logo.png" width="90" height="90" alt="Disney Logo" /></a>
           <nav className="hidden lg:block ms-5 flex-1">
             <ul className="flex font-bold">
@@ -40,38 +42,53 @@ export default function Home() {
           </nav>
           <div className="hidden lg:block me-5 hover:cursor-pointer">SIGN IN</div>
           <form className="hidden lg:flex items-center">
-            <input type="text" className="bg-[#F5F5F5] p-[10px] w-[290px] h-[40px] border-[1px] border-gray-500 border-r-0 rounded-tl rounded-bl" placeholder="Search" />
+            <input type="text" className="bg-[#F5F5F5] p-[10px] w-[210px] xl:w-[290px] h-[40px] border-[1px] border-gray-500 border-r-0 rounded-tl rounded-bl" placeholder="Search" />
             <button className="p-[10px] h-[40px] border-[1px] border-gray-500 border-l-0 rounded-tr rounded-br flex items-center"><Image src="/images/search.svg" width="25" height="25" /></button>
           </form>
           <IoSearchSharp size="1.7rem" className="lg:hidden cursor-pointer" />
+
         {disneyPlusMenu && (
-            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[170px]"></div>
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[170px]" onMouseEnter={() => setDisneyPlusMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}></div>
         )}
         {parksTravelMenu && (
-            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[300px]"></div>
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[300px]" onMouseEnter={() => setParksTravelMenu(true)} onMouseLeave={() => setParksTravelMenu(false)}></div>
         )}
         {moviesMenu && (
-            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[435px]"></div>
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[435px]" onMouseEnter={() => setMoviesMenu(true)} onMouseLeave={() => setMoviesMenu(false)}></div>
         )}
         {shopMenu && (
-            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[525px]"></div>
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[525px]" onMouseEnter={() => setShopMenu(true)} onMouseLeave={() => setShopMenu(false)}></div>
         )}
         {moreMenu && (
-            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[606px]"></div>
+            <div className="absolute bg-[#232B2D] text-orange-400 w-3 h-3 transform rotate-45 -bottom-[8px] left-[606px]" onMouseEnter={() => setMoreMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}></div>
         )}
-
 
       </div>
 
       <div className="hero-section h-[calc(100vh-63px)] overflow-hidden relative">
-        <img src="/images/header_image.jpeg" className="hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out" />
+        <div className="w-full h-full bg-[url('/images/header_image.jpeg')] bg-center bg-cover hover:transform hover:scale-[103%] duration-300 ease-in-out"></div>
+        {/* <img src="/images/header_image.jpeg" className="hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out" /> */}
 
-        <div className="header-feature-box absolute top-[50%] -translate-y-[50%] left-[115px] flex flex-col items-center">
+        <div className="header-feature-box absolute w-full lg:w-auto top-[50%] -translate-y-[50%] lg:left-[115px] flex flex-col items-center">
           <img src="/images/header_movie_title.png" width="450px" />
           <p className="text-white text-[0.9rem] mt-2">Experience <span className="italic">The Marvels</span> now, only in theaters!</p>
           <button className="bg-[#C8D5FC] w-[240px] mt-3 py-3 rounded-3xl text-[0.9rem] font-semibold hover:bg-[#b6c1e4]">Get Tickets Now</button>
           <button className="border w-[240px] mt-3 py-3 rounded-3xl text-[0.95rem] text-white font-semibold flex justify-center items-center hover:bg-gray-500 hover:bg-opacity-50 hover:border-gray-500 hover:border-opacity-50"><IoPlay className="me-2" size="17px" />Watch Trailer</button>
         </div>
+
+        {hamburgerDropdown && (
+            <ul className="lg:hidden absolute top-0 bg-[#232B2D] w-full text-white text-[0.85rem]">
+              <li className="border-t-2 border-t-black border-b-gray-400 bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">SIGN IN</a></li>
+              <li className="border-t-[2px] border-t-gray-200 bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY.COM</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY+</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">PARKS & TRAVEL</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">MOVIES</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">SHOP</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY NEWS</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">D23</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">LIVE SHOWS</a></li>
+            </ul>
+        )}
 
         {disneyPlusMenu && (
               <ul className="absolute left-[120px] top-0 bg-[#232B2D] w-fit text-white py-5 px-6 text-[0.85rem]" onMouseEnter={() => setDisneyPlusMenu(true)} onMouseLeave={() => setDisneyPlusMenu(false)}>
