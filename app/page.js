@@ -5,6 +5,9 @@ import { IoPlay } from "react-icons/io5";
 import { IoSearchSharp } from 'react-icons/io5';
 import { GiHamburgerMenu } from "react-icons/gi"; 
 import { useState } from 'react';
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+
 
 // components
 
@@ -24,6 +27,11 @@ export default function Home() {
   const [moreMenu, setMoreMenu] = useState(false)
 
   const [hamburgerDropdown, setHamburgerDropdown] = useState(false)
+  const [disneyPlusSubmenu, setDisneyPlusSubmenu] = useState(false)
+  const [disneyParksTravelSubmenu, setDisneyParksTravelSubmenu] = useState(false)
+  const [disneyMoviesSubmenu, setDisneyMoviesSubmenu] = useState(false)
+  const [disneyShopSubmenu, setDisneyShopSubmenu] = useState(false)
+  const [disneyLiveShowsSubmenu, setDisneyLiveShowsSubmenu] = useState(false)
 
   return (
     <main>
@@ -65,9 +73,8 @@ export default function Home() {
 
       </div>
 
-      <div className="hero-section h-[calc(100vh-63px)] overflow-hidden relative">
+      <div className="hero-section h-[calc(100vh-63px)] relative">
         <div className="w-full h-full bg-[url('/images/header_image.jpeg')] bg-center bg-cover hover:transform hover:scale-[103%] duration-300 ease-in-out"></div>
-        {/* <img src="/images/header_image.jpeg" className="hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out" /> */}
 
         <div className="header-feature-box absolute w-full lg:w-auto top-[50%] -translate-y-[50%] lg:left-[115px] flex flex-col items-center">
           <img src="/images/header_movie_title.png" width="450px" />
@@ -77,17 +84,78 @@ export default function Home() {
         </div>
 
         {hamburgerDropdown && (
-            <ul className="lg:hidden absolute top-0 bg-[#232B2D] w-full text-white text-[0.85rem]">
-              <li className="border-t-2 border-t-black border-b-gray-400 bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">SIGN IN</a></li>
-              <li className="border-t-[2px] border-t-gray-200 bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY.COM</a></li>
-              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY+</a></li>
-              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">PARKS & TRAVEL</a></li>
-              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">MOVIES</a></li>
-              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">SHOP</a></li>
-              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY NEWS</a></li>
-              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">D23</a></li>
-              <li className="border-t-[2px] border-t-gray-200  bg-white text-black font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">LIVE SHOWS</a></li>
+            <ul className="lg:hidden absolute top-0 bg-[#232B2D] w-full text-white text-[0.85rem] z-50">
+              <li className="border-t-2 border-t-black border-b-gray-400 bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">SIGN IN</a></li>
+              <li className="border-t-[2px] border-t-gray-200 bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY.COM</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12 relative" onClick={() => setDisneyPlusSubmenu(!disneyPlusSubmenu)}>DISNEY+{disneyPlusSubmenu ? <IoIosArrowDown className="float-right absolute right-6 text-gray-500" /> : <IoIosArrowForward className="float-right absolute right-6 text-gray-500" />}</a></li>
+
+              {disneyPlusSubmenu && (
+                <>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-top ps-6">Home</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">On Disney+</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-bottom ps-6">The Disney Bundle</a></li>
+                </>
+              )}
+
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12 relative" onClick={() => setDisneyParksTravelSubmenu(!disneyParksTravelSubmenu)}>PARKS & TRAVEL{disneyParksTravelSubmenu ? <IoIosArrowDown className="float-right absolute right-6 text-gray-500" /> : <IoIosArrowForward className="float-right absolute right-6 text-gray-500" />}</a></li>
+
+              {disneyParksTravelSubmenu && (
+                <>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-top ps-6">Home</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Walt Disney World</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Disneyland</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Disney Cruise Line</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Aulani</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-bottom ps-6">All Parks & Travel</a></li>
+                </>
+              )}
+
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12 relative" onClick={() => setDisneyMoviesSubmenu(!disneyMoviesSubmenu)}>MOVIES{disneyMoviesSubmenu ? <IoIosArrowDown className="float-right absolute right-6 text-gray-500" /> : <IoIosArrowForward className="float-right absolute right-6 text-gray-500" />}</a></li>
+
+              {disneyMoviesSubmenu && (
+                <>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-top ps-6">Home</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">All Movies</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Movies Anywhere</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Disney Movie Insiders</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-bottom ps-6">20th Century Studios</a></li>
+                </>
+              )}
+
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12 relative" onClick={() => setDisneyShopSubmenu(!disneyShopSubmenu)}>SHOP{disneyShopSubmenu ? <IoIosArrowDown className="float-right absolute right-6 text-gray-500" /> : <IoIosArrowForward className="float-right absolute right-6 text-gray-500" />}</a></li>
+
+              {disneyShopSubmenu && (
+                <>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-top ps-6">Sale</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Clothes</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Accessories</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Toys</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-bottom ps-6">Shop All</a></li>
+                </>
+              )}
+
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">DISNEY NEWS</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12">D23</a></li>
+              <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center hover:bg-gray-100 ps-12 relative" onClick={() => setDisneyLiveShowsSubmenu(!disneyLiveShowsSubmenu)}>LIVE SHOWS{disneyLiveShowsSubmenu ? <IoIosArrowDown className="float-right absolute right-6 text-gray-500" /> : <IoIosArrowForward className="float-right absolute right-6 text-gray-500" />}</a></li>
+
+              {disneyLiveShowsSubmenu && (
+                <>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-top ps-6">Home</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Disney on Broadway</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center ps-6">Disney on Ice</a></li>
+                  <li className="border-t-[2px] border-t-gray-200 bg-[#F5F5F5] text-gray-800 flex items-center h-[60px]"><a href="#" className="w-full h-full flex items-center shadow-bottom ps-6">Disney Live!</a></li>
+                </>
+              )}
+
             </ul>
+        )}
+
+        {disneyPlusSubmenu && (
+          <ul>
+            <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]">Home</li>
+            <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]">On Disney+</li>
+            <li className="border-t-[2px] border-t-gray-200  bg-white text-gray-800 font-bold flex items-center h-[60px]">The Disney Bundle</li>
+          </ul>
         )}
 
         {disneyPlusMenu && (
