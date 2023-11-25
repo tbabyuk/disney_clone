@@ -41,7 +41,7 @@ export const DesktopNavbar = ({menuState}) => {
         <div className="hidden lg:block me-5 hover:cursor-pointer">SIGN IN</div>
         <form className="hidden lg:flex items-center">
         <input type="text" className="bg-[#F5F5F5] p-[10px] w-[210px] xl:w-[290px] h-[40px] border-[1px] border-gray-500 border-r-0 rounded-tl rounded-bl" placeholder="Search" />
-        <button className="p-[10px] h-[40px] border-[1px] border-gray-500 border-l-0 rounded-tr rounded-br flex items-center"><Image src="/images/search.svg" width="25" height="25" /></button>
+        <button className="p-[10px] h-[40px] border-[1px] border-gray-500 border-l-0 rounded-tr rounded-br flex items-center"><Image src="/images/search.svg" alt="Search Icon" width="25" height="25" /></button>
         </form>
         <IoSearchSharp size="1.7rem" className="lg:hidden cursor-pointer" />
     </header>

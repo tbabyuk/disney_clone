@@ -4,7 +4,7 @@ export const BundleSection = () => {
 
     return (
         <section className="bundle-section h-[70vh] overflow-hidden relative grid place-items-center">
-            <img src="/images/bundle_image.jpeg" className="hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out h-full" />
+            <img src="/images/bundle_image.jpeg" alt="Bundle Image" className="hover:cursor-pointer hover:transform hover:scale-[103%] duration-300 ease-in-out h-full" />
             <div className="absolute text-white text-center max-w-[85vw]">
             <img src="/images/bundle_section/bundle_logo.png" width="350px" className="inline-block" />
             <p className="text-[0.9rem] mt-3">Access your favorite stories, originals and more from Disney+ and Hulu with plans starting at $9.99/month.</p>

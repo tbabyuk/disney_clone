@@ -5,7 +5,7 @@
 export const Footer = () => {
     return (
         <footer className="footer-section py-10 px-4 bg-[#FFFFFF]">
-            <img src="/images/disney_logo.png" className="mx-auto w-[80px]" />
+            <img src="/images/disney_logo.png" alt="Disney Logo" className="mx-auto w-[80px]" />
             <ul className="flex justify-center flex-wrap leading-6 text-[0.7rem] mt-5">
             <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">About Disney</a></li>
             <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Disney Help</a></li>
@@ -19,7 +19,7 @@ export const Footer = () => {
             <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Additional Content Information</a></li>
             <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Privacy Policy</a></li>
             <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Your US State Privacy Rights</a></li>
-            <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Children's Online Privacy Policy</a></li>
+            <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Children&apos;s Online Privacy Policy</a></li>
             <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Do Not Sell or Share My Personal Information</a></li>
             <li className="ms-3 me-3"><a href="#" className="hover:text-[#1786EB]">Interest-Based Ads</a></li>
             </ul>

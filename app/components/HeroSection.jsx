@@ -48,16 +48,16 @@ export const HeroSection = ({menuState}) => {
     
         }, []);
 
-        
+
     return (
         <section className={`hero-section h-[calc(100vh-63px)] relative`}>
 
             <div className="w-full h-full bg-blue-200 overflow-hidden">
-                <img src='/images/header_image.jpeg' className="hover:transform hover:scale-[103%] duration-300 ease-in-out h-full object-cover" />
+                <img src="/images/header_image.jpeg" alt="Featured Movie" className="hover:transform hover:scale-[103%] duration-300 ease-in-out h-full object-cover" />
             </div>
 
             <div className="header-feature-box absolute w-full lg:w-auto top-[50%] -translate-y-[50%] lg:left-[115px] flex flex-col items-center">
-            <img src="/images/header_movie_title.png" width="450px" />
+            <img src="/images/header_movie_title.png" alt="Movie Title" width="450px" />
             <p className="text-white text-[0.9rem] mt-2">Experience <span className="italic">The Marvels</span> now, only in theaters!</p>
             <button className="bg-[#C8D5FC] w-[240px] mt-3 py-3 rounded-3xl text-[0.9rem] font-semibold hover:bg-[#b6c1e4]">Get Tickets Now</button>
             <button className="border w-[240px] mt-3 py-3 rounded-3xl text-[0.95rem] text-white font-semibold flex justify-center items-center hover:bg-gray-500 hover:bg-opacity-50 hover:border-gray-500 hover:border-opacity-50"><IoPlay className="me-2" size="17px" />Watch Trailer</button>
