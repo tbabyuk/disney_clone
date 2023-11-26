@@ -93,14 +93,14 @@ export const celebrateMoviesList = [
         imageUrl: "/images/celebrate_section/celebrate_image_23.jpeg",
         description: "Noelle"
     },
-    {
-        imageUrl: "",
-        description: ""
-    },
-    {
-        imageUrl: "",
-        description: ""
-    },
+    // {
+    //     imageUrl: "",
+    //     description: ""
+    // },
+    // {
+    //     imageUrl: "",
+    //     description: ""
+    // },
 ]
 
 
@@ -166,16 +166,16 @@ export const comingSoonMoviesList = [
         description: "Spider-Man: Freshman Year",
         descriptionSmall: "Coming Soon"
     },
-    {
-        imageUrl: "",
-        description: ""
-    },
-    {
-        imageUrl: "",
-        description: ""
-    },
-    {
-        imageUrl: "",
-        description: ""
-    }
+    // {
+    //     imageUrl: "",
+    //     description: ""
+    // },
+    // {
+    //     imageUrl: "",
+    //     description: ""
+    // },
+    // {
+    //     imageUrl: "",
+    //     description: ""
+    // }
 ]
