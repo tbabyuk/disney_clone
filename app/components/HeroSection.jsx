@@ -52,8 +52,8 @@ export const HeroSection = ({menuState}) => {
     return (
         <section className={`hero-section h-[calc(100vh-63px)] relative`}>
 
-            <div className="w-full h-full bg-blue-200 overflow-hidden">
-                <img src="/images/header_image.jpeg" alt="Featured Movie" className="hover:transform hover:scale-[103%] duration-300 ease-in-out h-full object-cover" />
+            <div className="w-full h-full overflow-hidden">
+                <img src="/images/header_image.jpeg" alt="Featured Movie" className="hover:transform hover:scale-[103%] duration-300 ease-in-out h-full w-full object-cover" />
             </div>
 
             <div className="header-feature-box absolute w-full lg:w-auto top-[50%] -translate-y-[50%] lg:left-[115px] flex flex-col items-center">
